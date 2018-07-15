@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ClassApp</string>
+    <string name="app_name">News</string>
     <string name="this_is_tittle">this is tittle</string>
     <string name="this_is_my_description">this is my description</string>
     <string name="todo">TODO</string>

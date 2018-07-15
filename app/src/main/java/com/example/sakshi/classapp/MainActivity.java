@@ -19,8 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
         ListView =findViewById(R.id.channelList);
 
-        String[] channelName ={"ABC NEWS","TIMES OF INDIA","NATIONAL GEOGRAPHIC"};
-        final String[] channelId ={"abc-news","national-geographic","the-times-of-india"};
+        String[] channelName ={"ABC NEWS","TIMES OF INDIA","NATIONAL GEOGRAPHIC","ESPN","CNN"};
+        final String[] channelId ={"abc-news","national-geographic","the-times-of-india","espn","cnn"};
 
         ArrayAdapter<String>adapter =new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,channelName);
         ListView.setAdapter(adapter);

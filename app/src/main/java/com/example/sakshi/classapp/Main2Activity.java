@@ -1,12 +1,15 @@
 package com.example.sakshi.classapp;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.networkutil.NetworkUtil;
@@ -28,6 +31,8 @@ public class Main2Activity extends AppCompatActivity {
     String API_KEY ="ccf5ee90fced49989229f81e34fdd1be";
     String URL ="https://newsapi.org/v2/top-headlines?sources=";
 
+    ProgressBar progressBar3;
+
     Adapter adapter;
 
     @Override
@@ -37,6 +42,9 @@ public class Main2Activity extends AppCompatActivity {
 
 
         recyclerView =findViewById(R.id.detailList);
+
+
+        progressBar3 = findViewById(R.id.progressBar3);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Intent intent = getIntent();
@@ -55,6 +63,13 @@ public class Main2Activity extends AppCompatActivity {
     class FetchNews extends AsyncTask<Void,Void,Void>{
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar3.setVisibility(View.VISIBLE);
+        }
+
+
+        @Override
         protected Void doInBackground(Void... voids) {
 
             String finalUrl =URL+id+"&apiKey=ccf5ee90fced49989229f81e34fdd1be";
@@ -68,6 +83,8 @@ public class Main2Activity extends AppCompatActivity {
             super.onPostExecute(aVoid);
 
             ArrayList<News> newsArrayList = new ArrayList<>();
+
+            progressBar3.setVisibility(View.INVISIBLE);
 
             if (data==null){
                 Toast.makeText(Main2Activity.this, "No data returned", Toast.LENGTH_SHORT).show();
@@ -91,6 +108,13 @@ public class Main2Activity extends AppCompatActivity {
 
             }
             adapter.swap(newsArrayList);
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+            progressBar3.setProgress(0);
+
         }
     }
 }
