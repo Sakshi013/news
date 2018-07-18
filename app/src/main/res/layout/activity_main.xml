@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ListView
 
-        android:id="@+id/channelList"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/channerRV"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
-
-
-    </ListView>
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
 
 
 
 
-</LinearLayout>
+    <!--<ListView-->
+
+        <!--android:id="@+id/channelList"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--&gt;-->
+
+
+    <!--</ListView>-->
+
+
+
+
+</FrameLayout>

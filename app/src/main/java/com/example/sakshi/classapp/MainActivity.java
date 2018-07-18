@@ -3,40 +3,40 @@ package com.example.sakshi.classapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ItemClick {
 
-    ListView ListView;
+
+    String[] channelId ={"abc-news","national-geographic","the-times-of-india","espn","cnn"};
+
+    RecyclerView recyclerView;
+    CustomAdapter adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView =findViewById(R.id.channelList);
+        recyclerView = findViewById(R.id.channerRV);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        String[] channelName ={"ABC NEWS","TIMES OF INDIA","NATIONAL GEOGRAPHIC","ESPN","CNN"};
-        final String[] channelId ={"abc-news","national-geographic","the-times-of-india","espn","cnn"};
+        adapter = new CustomAdapter(this);
+        recyclerView.setAdapter(adapter);
 
-        ArrayAdapter<String>adapter =new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,channelName);
-        ListView.setAdapter(adapter);
+    }
 
-        ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String chid = channelId[position];
-
-                Intent intent =new Intent(MainActivity.this,Main2Activity.class);
-                intent.putExtra("id",chid);
-                startActivity(intent);
-
-            }
-        });
-
-
+    @Override
+    public void newClick(int position) {
+        String Chid =channelId[position];
+        Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+        intent.putExtra("id",Chid);
+        startActivity(intent);
     }
 }

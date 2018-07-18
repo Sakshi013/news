@@ -2,5 +2,11 @@
     <string name="app_name">News</string>
     <string name="this_is_tittle">this is tittle</string>
     <string name="this_is_my_description">this is my description</string>
-    <string name="todo">TODO</string>
+    <string name="todo1">TODO</string>
+    <string name="todo2">msg</string>
+    <string name="abc_news">AbC news</string>
+    <string name="general">General</string>
+    <string name="todo3">msg2</string>
+    <string name="image">image</string>
+    <string name="msg">msg</string>
 </resources>
