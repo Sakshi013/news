@@ -9,4 +9,7 @@
     <string name="todo3">msg2</string>
     <string name="image">image</string>
     <string name="msg">msg</string>
+    <string name="todo">TODO</string>
+
++
 </resources>

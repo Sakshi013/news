@@ -6,7 +6,7 @@
     android:layout_marginTop="10dp"
     android:gravity="center_vertical">
 
-    <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/abcImageView"
         android:layout_width="130dp"
         android:layout_height="100dp"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:text="@string/abc_news"
             android:textColor="@color/colorPrimary"
-            android:textSize="25sp"
+            android:textSize="23dp"
             android:textStyle="bold" />
 
         <TextView
